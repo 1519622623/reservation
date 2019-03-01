@@ -38,11 +38,8 @@
         <mysql-connector.version>5.1.34</mysql-connector.version>
     </properties>
     <modules>
-        <module>creative</module>
-        <module>material</module>
         <module>gateway</module>
-        <module>rm/rm_material</module>
-        <module>rm/rm_creative</module>
+        <module>rm</module>
     </modules>
 
     <dependencyManagement>
