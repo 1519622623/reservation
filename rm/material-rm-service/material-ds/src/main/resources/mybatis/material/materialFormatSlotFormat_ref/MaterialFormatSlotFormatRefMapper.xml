@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.dao.MaterialFormatSlotFormatRefMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRef" >
+    <id column="material_format_id" property="material_format_id" jdbcType="BIGINT" />
+    <id column="slot_format_id" property="slot_format_id" jdbcType="BIGINT" />
+    <result column="mappring_id" property="mappring_id" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    material_format_id, slot_format_id, mappring_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRefKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from material_format_slot_format_ref
+    where material_format_id = #{material_format_id,jdbcType=BIGINT}
+      and slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRefKey" >
+    delete from material_format_slot_format_ref
+    where material_format_id = #{material_format_id,jdbcType=BIGINT}
+      and slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRef" >
+    insert into material_format_slot_format_ref (material_format_id, slot_format_id, 
+      mappring_id)
+    values (#{material_format_id,jdbcType=BIGINT}, #{slot_format_id,jdbcType=BIGINT}, 
+      #{mappring_id,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRef" >
+    insert into material_format_slot_format_ref
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="material_format_id != null" >
+        material_format_id,
+      </if>
+      <if test="slot_format_id != null" >
+        slot_format_id,
+      </if>
+      <if test="mappring_id != null" >
+        mappring_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="material_format_id != null" >
+        #{material_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="slot_format_id != null" >
+        #{slot_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="mappring_id != null" >
+        #{mappring_id,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRef" >
+    update material_format_slot_format_ref
+    <set >
+      <if test="mappring_id != null" >
+        mappring_id = #{mappring_id,jdbcType=BIGINT},
+      </if>
+    </set>
+    where material_format_id = #{material_format_id,jdbcType=BIGINT}
+      and slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo.MaterialFormatSlotFormatRef" >
+    update material_format_slot_format_ref
+    set mappring_id = #{mappring_id,jdbcType=BIGINT}
+    where material_format_id = #{material_format_id,jdbcType=BIGINT}
+      and slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </update>
+</mapper>

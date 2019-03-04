@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.material.datasource.matrialSlotRef.dao.MatrialSlotRefMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRef" >
+    <id column="material_id" property="material_id" jdbcType="BIGINT" />
+    <id column="slot_id" property="slot_id" jdbcType="BIGINT" />
+    <result column="position_desc" property="position_desc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    material_id, slot_id, position_desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRefKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from matrial_slot_ref
+    where material_id = #{material_id,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRefKey" >
+    delete from matrial_slot_ref
+    where material_id = #{material_id,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRef" >
+    insert into matrial_slot_ref (material_id, slot_id, position_desc
+      )
+    values (#{material_id,jdbcType=BIGINT}, #{slot_id,jdbcType=BIGINT}, #{position_desc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRef" >
+    insert into matrial_slot_ref
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="material_id != null" >
+        material_id,
+      </if>
+      <if test="slot_id != null" >
+        slot_id,
+      </if>
+      <if test="position_desc != null" >
+        position_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="material_id != null" >
+        #{material_id,jdbcType=BIGINT},
+      </if>
+      <if test="slot_id != null" >
+        #{slot_id,jdbcType=BIGINT},
+      </if>
+      <if test="position_desc != null" >
+        #{position_desc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRef" >
+    update matrial_slot_ref
+    <set >
+      <if test="position_desc != null" >
+        position_desc = #{position_desc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where material_id = #{material_id,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo.MatrialSlotRef" >
+    update matrial_slot_ref
+    set position_desc = #{position_desc,jdbcType=VARCHAR}
+    where material_id = #{material_id,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.creative.datasource.controlTimeLimited.dao.ControlTimeLimitedMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.creative.datasource.controlTimeLimited.pojo.ControlTimeLimited" >
+    <result column="aid" property="aid" jdbcType="BIGINT" />
+    <result column="limited_type" property="limited_type" jdbcType="INTEGER" />
+    <result column="begin_time" property="begin_time" jdbcType="TIME" />
+    <result column="end_time" property="end_time" jdbcType="TIME" />
+  </resultMap>
+  <insert id="insert" parameterType="com.market.starmedia.logic.creative.datasource.controlTimeLimited.pojo.ControlTimeLimited" >
+    insert into control_time_limited (aid, limited_type, begin_time, 
+      end_time)
+    values (#{aid,jdbcType=BIGINT}, #{limited_type,jdbcType=INTEGER}, #{begin_time,jdbcType=TIME}, 
+      #{end_time,jdbcType=TIME})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.creative.datasource.controlTimeLimited.pojo.ControlTimeLimited" >
+    insert into control_time_limited
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="limited_type != null" >
+        limited_type,
+      </if>
+      <if test="begin_time != null" >
+        begin_time,
+      </if>
+      <if test="end_time != null" >
+        end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="limited_type != null" >
+        #{limited_type,jdbcType=INTEGER},
+      </if>
+      <if test="begin_time != null" >
+        #{begin_time,jdbcType=TIME},
+      </if>
+      <if test="end_time != null" >
+        #{end_time,jdbcType=TIME},
+      </if>
+    </trim>
+  </insert>
+</mapper>

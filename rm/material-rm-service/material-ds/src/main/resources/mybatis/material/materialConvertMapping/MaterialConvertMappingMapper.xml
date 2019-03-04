@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.material.datasource.materialConvertMapping.dao.MaterialConvertMappingMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    <id column="mappring_id" property="mappring_id" jdbcType="BIGINT" />
+    <result column="mapping_name" property="mapping_name" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" extends="BaseResultMap" >
+    <result column="mapping_content" property="mapping_content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mappring_id, mapping_name
+  </sql>
+  <sql id="Blob_Column_List" >
+    mapping_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from material_convert_mapping
+    where mappring_id = #{mappring_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from material_convert_mapping
+    where mappring_id = #{mappring_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    insert into material_convert_mapping (mappring_id, mapping_name, mapping_content
+      )
+    values (#{mappring_id,jdbcType=BIGINT}, #{mapping_name,jdbcType=VARCHAR}, #{mapping_content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    insert into material_convert_mapping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mappring_id != null" >
+        mappring_id,
+      </if>
+      <if test="mapping_name != null" >
+        mapping_name,
+      </if>
+      <if test="mapping_content != null" >
+        mapping_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mappring_id != null" >
+        #{mappring_id,jdbcType=BIGINT},
+      </if>
+      <if test="mapping_name != null" >
+        #{mapping_name,jdbcType=VARCHAR},
+      </if>
+      <if test="mapping_content != null" >
+        #{mapping_content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    update material_convert_mapping
+    <set >
+      <if test="mapping_name != null" >
+        mapping_name = #{mapping_name,jdbcType=VARCHAR},
+      </if>
+      <if test="mapping_content != null" >
+        mapping_content = #{mapping_content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where mappring_id = #{mappring_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    update material_convert_mapping
+    set mapping_name = #{mapping_name,jdbcType=VARCHAR},
+      mapping_content = #{mapping_content,jdbcType=LONGVARCHAR}
+    where mappring_id = #{mappring_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo.MaterialConvertMapping" >
+    update material_convert_mapping
+    set mapping_name = #{mapping_name,jdbcType=VARCHAR}
+    where mappring_id = #{mappring_id,jdbcType=BIGINT}
+  </update>
+</mapper>

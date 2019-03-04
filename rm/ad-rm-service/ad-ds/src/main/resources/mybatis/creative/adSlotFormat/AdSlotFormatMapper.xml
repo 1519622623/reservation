@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.creative.datasource.adSlotFormat.dao.AdSlotFormatMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    <id column="slot_format_id" property="slot_format_id" jdbcType="BIGINT" />
+    <result column="slot_format_id_remote" property="slot_format_id_remote" jdbcType="VARCHAR" />
+    <result column="slot_format_type_name" property="slot_format_type_name" jdbcType="VARCHAR" />
+    <result column="platform" property="platform" jdbcType="INTEGER" />
+    <result column="slot_format_type_category" property="slot_format_type_category" jdbcType="INTEGER" />
+    <result column="slot_format_type_category_name" property="slot_format_type_category_name" jdbcType="VARCHAR" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" extends="BaseResultMap" >
+    <result column="slot_format" property="slot_format" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    slot_format_id, slot_format_id_remote, slot_format_type_name, platform, slot_format_type_category, 
+    slot_format_type_category_name, update_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    slot_format
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ad_slot_format
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ad_slot_format
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    insert into ad_slot_format (slot_format_id, slot_format_id_remote, 
+      slot_format_type_name, platform, slot_format_type_category, 
+      slot_format_type_category_name, update_time, 
+      slot_format)
+    values (#{slot_format_id,jdbcType=BIGINT}, #{slot_format_id_remote,jdbcType=VARCHAR}, 
+      #{slot_format_type_name,jdbcType=VARCHAR}, #{platform,jdbcType=INTEGER}, #{slot_format_type_category,jdbcType=INTEGER}, 
+      #{slot_format_type_category_name,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{slot_format,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    insert into ad_slot_format
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="slot_format_id != null" >
+        slot_format_id,
+      </if>
+      <if test="slot_format_id_remote != null" >
+        slot_format_id_remote,
+      </if>
+      <if test="slot_format_type_name != null" >
+        slot_format_type_name,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="slot_format_type_category != null" >
+        slot_format_type_category,
+      </if>
+      <if test="slot_format_type_category_name != null" >
+        slot_format_type_category_name,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="slot_format != null" >
+        slot_format,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="slot_format_id != null" >
+        #{slot_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="slot_format_id_remote != null" >
+        #{slot_format_id_remote,jdbcType=VARCHAR},
+      </if>
+      <if test="slot_format_type_name != null" >
+        #{slot_format_type_name,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="slot_format_type_category != null" >
+        #{slot_format_type_category,jdbcType=INTEGER},
+      </if>
+      <if test="slot_format_type_category_name != null" >
+        #{slot_format_type_category_name,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slot_format != null" >
+        #{slot_format,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    update ad_slot_format
+    <set >
+      <if test="slot_format_id_remote != null" >
+        slot_format_id_remote = #{slot_format_id_remote,jdbcType=VARCHAR},
+      </if>
+      <if test="slot_format_type_name != null" >
+        slot_format_type_name = #{slot_format_type_name,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="slot_format_type_category != null" >
+        slot_format_type_category = #{slot_format_type_category,jdbcType=INTEGER},
+      </if>
+      <if test="slot_format_type_category_name != null" >
+        slot_format_type_category_name = #{slot_format_type_category_name,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slot_format != null" >
+        slot_format = #{slot_format,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    update ad_slot_format
+    set slot_format_id_remote = #{slot_format_id_remote,jdbcType=VARCHAR},
+      slot_format_type_name = #{slot_format_type_name,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=INTEGER},
+      slot_format_type_category = #{slot_format_type_category,jdbcType=INTEGER},
+      slot_format_type_category_name = #{slot_format_type_category_name,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      slot_format = #{slot_format,jdbcType=LONGVARCHAR}
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo.AdSlotFormat" >
+    update ad_slot_format
+    set slot_format_id_remote = #{slot_format_id_remote,jdbcType=VARCHAR},
+      slot_format_type_name = #{slot_format_type_name,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=INTEGER},
+      slot_format_type_category = #{slot_format_type_category,jdbcType=INTEGER},
+      slot_format_type_category_name = #{slot_format_type_category_name,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+  </update>
+</mapper>

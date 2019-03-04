@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.material.datasource.materialSlotInfo.dao.MaterialSlotInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    <id column="slot_format_id" property="slot_format_id" jdbcType="BIGINT" />
+    <id column="material_id" property="material_id" jdbcType="BIGINT" />
+    <result column="material_format_id" property="material_format_id" jdbcType="BIGINT" />
+    <result column="update_user" property="update_user" jdbcType="VARCHAR" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" extends="BaseResultMap" >
+    <result column="slot_format_content" property="slot_format_content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    slot_format_id, material_id, material_format_id, update_user, update_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    slot_format_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfoKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from material_slot_info
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+      and material_id = #{material_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfoKey" >
+    delete from material_slot_info
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+      and material_id = #{material_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    insert into material_slot_info (slot_format_id, material_id, material_format_id, 
+      update_user, update_time, slot_format_content
+      )
+    values (#{slot_format_id,jdbcType=BIGINT}, #{material_id,jdbcType=BIGINT}, #{material_format_id,jdbcType=BIGINT}, 
+      #{update_user,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, #{slot_format_content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    insert into material_slot_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="slot_format_id != null" >
+        slot_format_id,
+      </if>
+      <if test="material_id != null" >
+        material_id,
+      </if>
+      <if test="material_format_id != null" >
+        material_format_id,
+      </if>
+      <if test="update_user != null" >
+        update_user,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="slot_format_content != null" >
+        slot_format_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="slot_format_id != null" >
+        #{slot_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="material_id != null" >
+        #{material_id,jdbcType=BIGINT},
+      </if>
+      <if test="material_format_id != null" >
+        #{material_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="update_user != null" >
+        #{update_user,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slot_format_content != null" >
+        #{slot_format_content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    update material_slot_info
+    <set >
+      <if test="material_format_id != null" >
+        material_format_id = #{material_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="update_user != null" >
+        update_user = #{update_user,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slot_format_content != null" >
+        slot_format_content = #{slot_format_content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+      and material_id = #{material_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    update material_slot_info
+    set material_format_id = #{material_format_id,jdbcType=BIGINT},
+      update_user = #{update_user,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      slot_format_content = #{slot_format_content,jdbcType=LONGVARCHAR}
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+      and material_id = #{material_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo.MaterialSlotInfo" >
+    update material_slot_info
+    set material_format_id = #{material_format_id,jdbcType=BIGINT},
+      update_user = #{update_user,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where slot_format_id = #{slot_format_id,jdbcType=BIGINT}
+      and material_id = #{material_id,jdbcType=BIGINT}
+  </update>
+</mapper>

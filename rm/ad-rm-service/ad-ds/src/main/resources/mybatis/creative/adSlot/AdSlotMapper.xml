@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.creative.datasource.adSlot.dao.AdSlotMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.creative.datasource.adSlot.pojo.AdSlot" >
+    <id column="slot_id" property="slot_id" jdbcType="BIGINT" />
+    <result column="slot_name" property="slot_name" jdbcType="VARCHAR" />
+    <result column="is_open" property="is_open" jdbcType="TINYINT" />
+    <result column="slot_type" property="slot_type" jdbcType="INTEGER" />
+    <result column="slot_size" property="slot_size" jdbcType="VARCHAR" />
+    <result column="position_desc" property="position_desc" jdbcType="VARCHAR" />
+    <result column="remote_slot_id" property="remote_slot_id" jdbcType="VARCHAR" />
+    <result column="slot_format_id" property="slot_format_id" jdbcType="BIGINT" />
+    <result column="platform" property="platform" jdbcType="INTEGER" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    slot_id, slot_name, is_open, slot_type, slot_size, position_desc, remote_slot_id, 
+    slot_format_id, platform, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ad_slot
+    where slot_id = #{slot_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ad_slot
+    where slot_id = #{slot_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.creative.datasource.adSlot.pojo.AdSlot" >
+    insert into ad_slot (slot_id, slot_name, is_open, 
+      slot_type, slot_size, position_desc, 
+      remote_slot_id, slot_format_id, platform, 
+      update_time)
+    values (#{slot_id,jdbcType=BIGINT}, #{slot_name,jdbcType=VARCHAR}, #{is_open,jdbcType=TINYINT}, 
+      #{slot_type,jdbcType=INTEGER}, #{slot_size,jdbcType=VARCHAR}, #{position_desc,jdbcType=VARCHAR}, 
+      #{remote_slot_id,jdbcType=VARCHAR}, #{slot_format_id,jdbcType=BIGINT}, #{platform,jdbcType=INTEGER}, 
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlot.pojo.AdSlot" >
+    insert into ad_slot
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="slot_id != null" >
+        slot_id,
+      </if>
+      <if test="slot_name != null" >
+        slot_name,
+      </if>
+      <if test="is_open != null" >
+        is_open,
+      </if>
+      <if test="slot_type != null" >
+        slot_type,
+      </if>
+      <if test="slot_size != null" >
+        slot_size,
+      </if>
+      <if test="position_desc != null" >
+        position_desc,
+      </if>
+      <if test="remote_slot_id != null" >
+        remote_slot_id,
+      </if>
+      <if test="slot_format_id != null" >
+        slot_format_id,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="slot_id != null" >
+        #{slot_id,jdbcType=BIGINT},
+      </if>
+      <if test="slot_name != null" >
+        #{slot_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_open != null" >
+        #{is_open,jdbcType=TINYINT},
+      </if>
+      <if test="slot_type != null" >
+        #{slot_type,jdbcType=INTEGER},
+      </if>
+      <if test="slot_size != null" >
+        #{slot_size,jdbcType=VARCHAR},
+      </if>
+      <if test="position_desc != null" >
+        #{position_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="remote_slot_id != null" >
+        #{remote_slot_id,jdbcType=VARCHAR},
+      </if>
+      <if test="slot_format_id != null" >
+        #{slot_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlot.pojo.AdSlot" >
+    update ad_slot
+    <set >
+      <if test="slot_name != null" >
+        slot_name = #{slot_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_open != null" >
+        is_open = #{is_open,jdbcType=TINYINT},
+      </if>
+      <if test="slot_type != null" >
+        slot_type = #{slot_type,jdbcType=INTEGER},
+      </if>
+      <if test="slot_size != null" >
+        slot_size = #{slot_size,jdbcType=VARCHAR},
+      </if>
+      <if test="position_desc != null" >
+        position_desc = #{position_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="remote_slot_id != null" >
+        remote_slot_id = #{remote_slot_id,jdbcType=VARCHAR},
+      </if>
+      <if test="slot_format_id != null" >
+        slot_format_id = #{slot_format_id,jdbcType=BIGINT},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.creative.datasource.adSlot.pojo.AdSlot" >
+    update ad_slot
+    set slot_name = #{slot_name,jdbcType=VARCHAR},
+      is_open = #{is_open,jdbcType=TINYINT},
+      slot_type = #{slot_type,jdbcType=INTEGER},
+      slot_size = #{slot_size,jdbcType=VARCHAR},
+      position_desc = #{position_desc,jdbcType=VARCHAR},
+      remote_slot_id = #{remote_slot_id,jdbcType=VARCHAR},
+      slot_format_id = #{slot_format_id,jdbcType=BIGINT},
+      platform = #{platform,jdbcType=INTEGER},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+</mapper>
