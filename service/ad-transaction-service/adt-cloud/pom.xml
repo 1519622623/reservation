@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>material-rm-service</artifactId>
+        <artifactId>ad-transaction-service</artifactId>
         <groupId>com.market</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>material-cloud</artifactId>
+    <artifactId>adt-cloud</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,10 +57,11 @@
             <artifactId>ad-ds</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
-            <groupId>com.market</groupId>
-            <artifactId>material-ds</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+
         </dependency>
 
     </dependencies>
@@ -81,5 +82,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

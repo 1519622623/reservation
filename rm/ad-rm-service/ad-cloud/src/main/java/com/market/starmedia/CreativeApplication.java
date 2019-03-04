@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.alibaba.fescar.spring.annotation.GlobalTransactional;
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.market.starmedia.logic.creative.datasource.adEffect.dao")
+@MapperScan("com.market.starmedia.logic.creative.datasource.*.dao")
 public class CreativeApplication {
 
 	public static void main(String[] args) {
