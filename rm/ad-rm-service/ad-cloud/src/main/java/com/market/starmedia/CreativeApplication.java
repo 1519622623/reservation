@@ -27,7 +27,7 @@ public class CreativeApplication {
 		@RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
 		public String echo(@PathVariable String string) {
 
-			AdEffect result = adEffectmapper.selectByPrimaryKey((long) 10542);
+			AdEffect result  = adEffectmapper.selectByPrimaryKey((long) 10542);
 			return "hello Nacos Discovery " + string+ JSON.toJSONString(result);
 		}
 
