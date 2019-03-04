@@ -3,7 +3,7 @@
 <generatorConfiguration>
     <classPathEntry location="D:\dev\maven\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
 
-    <!--<context id="ad_effect">
+    <context id="material_convert_mapping">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -13,13 +13,13 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adEffect.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialConvertMapping.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adEffect"
+        <sqlMapGenerator targetPackage="mybatis.material.materialConvertMapping"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adEffect.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialConvertMapping.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_effect"
+        <table schema="" tableName="material_convert_mapping"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
@@ -27,7 +27,7 @@
         </table>
     </context>
 
-    <context id="ad_schedule_material_ref">
+    <context id="material_format">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -37,20 +37,21 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adScheduleMaterialRef.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialFormat.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adScheduleMaterialRef"
+        <sqlMapGenerator targetPackage="mybatis.material.materialFormat"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adScheduleMaterialRef.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialFormat.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_schedule_material_ref"
+        <table schema="" tableName="material_format"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
-    <context id="ad_schedule_sw">
+
+    <context id="material_format_slot_format_ref">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -60,20 +61,21 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adScheduleSw.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adScheduleSw"
+        <sqlMapGenerator targetPackage="mybatis.material.materialFormatSlotFormat_ref"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adScheduleSw.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialFormatSlotFormat_ref.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_schedule_sw"
+        <table schema="" tableName="material_format_slot_format_ref"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
-    <context id="ad_slot">
+
+    <context id="material_info">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -83,20 +85,21 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlot.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialInfo.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adSlot"
+        <sqlMapGenerator targetPackage="mybatis.material.materialInfo"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlot.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialInfo.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_slot"
+        <table schema="" tableName="material_info"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
-    <context id="ad_slot_format">
+
+    <context id="material_info_conflict">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -106,20 +109,21 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotFormat.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialInfoConflict.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adSlotFormat"
+        <sqlMapGenerator targetPackage="mybatis.material.materialInfoConflict"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotFormat.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialInfoConflict.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_slot_format"
+        <table schema="" tableName="material_info_conflict"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
-    <context id="ad_slot_ref">
+
+    <context id="material_slot_info">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -129,20 +133,21 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialSlotInfo.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adSlotRef"
+        <sqlMapGenerator targetPackage="mybatis.material.materialSlotInfo"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotRef.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.materialSlotInfo.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_slot_ref"
+        <table schema="" tableName="material_slot_info"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
-    <context id="ad_slot_seat">
+
+    <context id="matrial_slot_ref">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
@@ -152,36 +157,13 @@
                         connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
                         userId="root" password="abc#123" />
 
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo"
+        <javaModelGenerator targetPackage="com.market.starmedia.logic.material.datasource.matrialSlotRef.pojo"
                             targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adSlotSeat"
+        <sqlMapGenerator targetPackage="mybatis.material.matrialSlotRef"
                          targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotSeat.dao"
+        <javaClientGenerator targetPackage="com.market.starmedia.logic.material.datasource.matrialSlotRef.dao"
                              targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_slot_seat"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-    </context>
-    <context id="ad_slot_seat_info">
-        <commentGenerator>
-            <property name="suppressAllComments" value="true" />
-            <property name="suppressDate" value="true" />
-            <property name="useActualColumnNames" value="true"/>
-        </commentGenerator>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
-                        userId="root" password="abc#123" />
-
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotSeatInfo.pojo"
-                            targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.adSlotSeatInfo"
-                         targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.adSlotSeatInfo.dao"
-                             targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="ad_slot_seat_info"
+        <table schema="" tableName="matrial_slot_ref"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
@@ -189,52 +171,6 @@
         </table>
     </context>
 
-    <context id="aid_generator">
-        <commentGenerator>
-            <property name="suppressAllComments" value="true" />
-            <property name="suppressDate" value="true" />
-            <property name="useActualColumnNames" value="true"/>
-        </commentGenerator>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
-                        userId="root" password="abc#123" />
-
-        <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.aidGenerator.pojo"
-                            targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="mybatis.creative.aidGenerator"
-                         targetProject="src/main/resources" />
-        <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.aidGenerator.dao"
-                             targetProject="src/main/java" type="XMLMAPPER" />
-        <table schema="" tableName="aid_generator"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="true"/>
-        </table>
-    </context>-->
 
 
-    <context id="control_time_limited">
-    <commentGenerator>
-        <property name="suppressAllComments" value="true" />
-        <property name="suppressDate" value="true" />
-        <property name="useActualColumnNames" value="true"/>
-    </commentGenerator>
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://192.168.27.218:3306/ad_platform_demo?useUnicode=true"
-                    userId="root" password="abc#123" />
-
-    <javaModelGenerator targetPackage="com.market.starmedia.logic.creative.datasource.controlTimeLimited.pojo"
-                        targetProject="src/main/java" />
-    <sqlMapGenerator targetPackage="mybatis.creative.controlTimeLimited"
-                     targetProject="src/main/resources" />
-    <javaClientGenerator targetPackage="com.market.starmedia.logic.creative.datasource.controlTimeLimited.dao"
-                         targetProject="src/main/java" type="XMLMAPPER" />
-    <table schema="" tableName="control_time_limited"
-           enableCountByExample="false" enableUpdateByExample="false"
-           enableDeleteByExample="false" enableSelectByExample="false"
-           selectByExampleQueryId="false">
-        <property name="useActualColumnNames" value="true"/>
-    </table>
-    </context>
 </generatorConfiguration>

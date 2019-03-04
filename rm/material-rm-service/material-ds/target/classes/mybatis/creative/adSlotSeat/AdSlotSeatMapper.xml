@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.creative.datasource.adSlotSeat.dao.AdSlotSeatMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    <id column="seat_id" property="seat_id" jdbcType="BIGINT" />
+    <result column="seat_name" property="seat_name" jdbcType="VARCHAR" />
+    <result column="seat_index" property="seat_index" jdbcType="INTEGER" />
+    <result column="slot_id" property="slot_id" jdbcType="BIGINT" />
+    <result column="is_open" property="is_open" jdbcType="TINYINT" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" extends="BaseResultMap" >
+    <result column="additional" property="additional" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seat_id, seat_name, seat_index, slot_id, is_open, update_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    additional
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ad_slot_seat
+    where seat_id = #{seat_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ad_slot_seat
+    where seat_id = #{seat_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    insert into ad_slot_seat (seat_id, seat_name, seat_index, 
+      slot_id, is_open, update_time, 
+      additional)
+    values (#{seat_id,jdbcType=BIGINT}, #{seat_name,jdbcType=VARCHAR}, #{seat_index,jdbcType=INTEGER}, 
+      #{slot_id,jdbcType=BIGINT}, #{is_open,jdbcType=TINYINT}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{additional,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    insert into ad_slot_seat
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seat_id != null" >
+        seat_id,
+      </if>
+      <if test="seat_name != null" >
+        seat_name,
+      </if>
+      <if test="seat_index != null" >
+        seat_index,
+      </if>
+      <if test="slot_id != null" >
+        slot_id,
+      </if>
+      <if test="is_open != null" >
+        is_open,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="additional != null" >
+        additional,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seat_id != null" >
+        #{seat_id,jdbcType=BIGINT},
+      </if>
+      <if test="seat_name != null" >
+        #{seat_name,jdbcType=VARCHAR},
+      </if>
+      <if test="seat_index != null" >
+        #{seat_index,jdbcType=INTEGER},
+      </if>
+      <if test="slot_id != null" >
+        #{slot_id,jdbcType=BIGINT},
+      </if>
+      <if test="is_open != null" >
+        #{is_open,jdbcType=TINYINT},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="additional != null" >
+        #{additional,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    update ad_slot_seat
+    <set >
+      <if test="seat_name != null" >
+        seat_name = #{seat_name,jdbcType=VARCHAR},
+      </if>
+      <if test="seat_index != null" >
+        seat_index = #{seat_index,jdbcType=INTEGER},
+      </if>
+      <if test="slot_id != null" >
+        slot_id = #{slot_id,jdbcType=BIGINT},
+      </if>
+      <if test="is_open != null" >
+        is_open = #{is_open,jdbcType=TINYINT},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="additional != null" >
+        additional = #{additional,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where seat_id = #{seat_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    update ad_slot_seat
+    set seat_name = #{seat_name,jdbcType=VARCHAR},
+      seat_index = #{seat_index,jdbcType=INTEGER},
+      slot_id = #{slot_id,jdbcType=BIGINT},
+      is_open = #{is_open,jdbcType=TINYINT},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      additional = #{additional,jdbcType=LONGVARCHAR}
+    where seat_id = #{seat_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.creative.datasource.adSlotSeat.pojo.AdSlotSeat" >
+    update ad_slot_seat
+    set seat_name = #{seat_name,jdbcType=VARCHAR},
+      seat_index = #{seat_index,jdbcType=INTEGER},
+      slot_id = #{slot_id,jdbcType=BIGINT},
+      is_open = #{is_open,jdbcType=TINYINT},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where seat_id = #{seat_id,jdbcType=BIGINT}
+  </update>
+</mapper>

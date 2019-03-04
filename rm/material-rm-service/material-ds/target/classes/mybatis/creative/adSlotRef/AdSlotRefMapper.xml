@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.market.starmedia.logic.creative.datasource.adSlotRef.dao.AdSlotRefMapper" >
+  <resultMap id="BaseResultMap" type="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    <id column="aid" property="aid" jdbcType="BIGINT" />
+    <id column="slot_id" property="slot_id" jdbcType="BIGINT" />
+    <result column="position_desc" property="position_desc" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" extends="BaseResultMap" >
+    <result column="additional" property="additional" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aid, slot_id, position_desc
+  </sql>
+  <sql id="Blob_Column_List" >
+    additional
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRefKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ad_slot_ref
+    where aid = #{aid,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRefKey" >
+    delete from ad_slot_ref
+    where aid = #{aid,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    insert into ad_slot_ref (aid, slot_id, position_desc, 
+      additional)
+    values (#{aid,jdbcType=BIGINT}, #{slot_id,jdbcType=BIGINT}, #{position_desc,jdbcType=VARCHAR}, 
+      #{additional,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    insert into ad_slot_ref
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="slot_id != null" >
+        slot_id,
+      </if>
+      <if test="position_desc != null" >
+        position_desc,
+      </if>
+      <if test="additional != null" >
+        additional,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="slot_id != null" >
+        #{slot_id,jdbcType=BIGINT},
+      </if>
+      <if test="position_desc != null" >
+        #{position_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="additional != null" >
+        #{additional,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    update ad_slot_ref
+    <set >
+      <if test="position_desc != null" >
+        position_desc = #{position_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="additional != null" >
+        additional = #{additional,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    update ad_slot_ref
+    set position_desc = #{position_desc,jdbcType=VARCHAR},
+      additional = #{additional,jdbcType=LONGVARCHAR}
+    where aid = #{aid,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.starmedia.logic.creative.datasource.adSlotRef.pojo.AdSlotRef" >
+    update ad_slot_ref
+    set position_desc = #{position_desc,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=BIGINT}
+      and slot_id = #{slot_id,jdbcType=BIGINT}
+  </update>
+</mapper>
