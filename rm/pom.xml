@@ -20,5 +20,4 @@
         <module>ad-rm-service</module>
         <module>material-rm-service</module>
     </modules>
-    <packaging>pom</packaging>
 </project>
