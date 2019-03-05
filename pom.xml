@@ -19,9 +19,10 @@
     <modules>
         <module>gateway</module>
         <module>service</module>
+        <module>rm</module>
         <!--
 
-        <module>rm</module>
+
 
         -->
     </modules>
