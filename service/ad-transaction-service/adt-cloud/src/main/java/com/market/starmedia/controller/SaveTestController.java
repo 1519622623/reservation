@@ -20,6 +20,6 @@ public class SaveTestController {
 
         creativeService.save(form.getAd());
         materialService.save(form.getMaterial());
-        return "hello Nacos Discovery 11p第三方p";
+        return "hello Nacos Discovery 11p第三方p1";
     }
 }
